@@ -1,0 +1,16 @@
+# requires play routes plugin
+
+# First created this health endpoint to be used to test that app is, in fact, running
+GET     /v1/health                  controllers.HealthController.index
+GET     /v1/redisCheck              controllers.HealthController.redisCheck
+
+GET     /v1/getUser                 controllers.BasicAuthController.getUser
+GET     /v1/login                   controllers.BasicAuthController.login
+POST    /v1/registerUser            controllers.BasicAuthController.registerUser
+POST    /v1/registerRealtor         controllers.BasicAuthController.registerRealtor
+
+GET     /v1/getAllApartments        controllers.ApartmentController.getAllApartments(page: Option[Int], pageSize: Option[Int], search: Option[String])
+GET     /v1/getRealtorApartments    controllers.ApartmentController.getRealtorApartments(page: Option[Int], pageSize: Option[Int], search: Option[String])
+POST    /v1/postApartment           controllers.ApartmentController.postApartment
+PUT     /v1/updateApartment         controllers.ApartmentController.updateApartment
+DELETE  /v1/deleteApartment         controllers.ApartmentController.deleteApartment(apartmentId: String)
